@@ -63,7 +63,31 @@
                 position: absolute;
                 font-size: 30px;
                 right: 20px;
+                cursor: pointer;
                 top: 20px;
+              }
+
+              .add-to-cart {
+                display: none;
+                position: absolute;
+                bottom: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+            
+                button {
+                  background-color: #4caf50;
+                  color: white;
+                  padding: 8px 16px;
+                  border: none;
+                  border-radius: 4px;
+                  cursor: pointer;
+                }
+              }
+            
+              &:hover {
+                .add-to-cart {
+                  display: block;
+                }
               }
       
               img {

@@ -22,6 +22,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ name, price, imageUrl }) => {
       <img src={imageUrl} alt={name} />
       <h3>{name}</h3>
       <p>{price}</p>
+      <div className="add-to-cart">
+        <button>View Product</button>
+      </div>
     </div>
   );
 };
