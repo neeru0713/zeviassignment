@@ -1,0 +1,31 @@
+@import './_variables.scss';
+
+.filter{
+    h2{
+        font-weight: 500;
+    }
+
+    svg{
+        font-size: 20px;
+        margin-left: 10px;
+    }
+
+    ul{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        list-style-type: none; 
+        padding-left: 0px;
+        color: $secondary-color;
+
+        li{
+            input{
+                margin-right: 10px;
+            }
+
+            label{
+                font-size: 16px;
+            }
+        }
+    }
+}
