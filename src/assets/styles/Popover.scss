@@ -26,7 +26,13 @@
       gap: 8px;
       padding-left: 0px;
       color: $secondary-color;
+
+      li{
+
+        cursor: pointer;
+      }
     }
+
   }
 
   #image-gallery {
@@ -36,6 +42,7 @@
     .card {
       display: flex;
       flex-direction: column;
+      cursor: pointer;
 
       img {
         border-radius: 10px;
