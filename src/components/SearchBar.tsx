@@ -4,7 +4,7 @@ import  '../assets/styles/SearchBar.scss';
 import { CiSearch } from 'react-icons/ci';
 import Popover from './Popover';
 
-const SearchBar: React.FC = () => {
+const SearchBar: React.FC<{className: string}> = ({className}) => {
   const [showPopover, setShowPopover] = useState(false);
 
   const openPopover = () => {
@@ -12,11 +12,15 @@ const SearchBar: React.FC = () => {
   };
 
   return (
-    <div className='search-bar' onClick={openPopover}>
+    <>
+    <div className={`search-bar ${className}`} onClick={openPopover}>
       <input type="text" name="input" placeholder="Search" />
       <CiSearch id="search-icon" />
-      <Popover open={showPopover} />
+     
     </div>
+
+<Popover open={showPopover} />
+</>
   );
 };
 

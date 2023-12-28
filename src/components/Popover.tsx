@@ -18,7 +18,6 @@ const Popover: React.FC<{ open: boolean }> = ({ open }) => {
   const [popularSuggestions, setPopularSuggestions] = useState<string[]>([]);
 
   useEffect(() => {
-    // Manually define clothing-related data for latest trends
     const latestTrendsData: TrendData[] = [
       { image: stylishJacket , caption: 'Stylish Jacket' },
       { image: designerDress, caption: 'Designer Dress' },
@@ -38,7 +37,7 @@ const Popover: React.FC<{ open: boolean }> = ({ open }) => {
 
     setLatestTrends(latestTrendsData);
     setPopularSuggestions(popularSuggestionsData);
-  }, [open]); // Trigger data generation when the popover opens
+  }, [open]); 
 
   return (
     <div className={open ? "popover" : "popover-hidden"}>
@@ -47,7 +46,10 @@ const Popover: React.FC<{ open: boolean }> = ({ open }) => {
         <div id="image-gallery">
           {latestTrends.map((item, index) => (
             <div key={index} className="card">
-              <img src={item.image} alt={`Trend ${index + 1}`} />
+                <a href="/products">
+                <img src={item.image} alt={`Trend ${index + 1}`} />
+                </a>
+             
               <div className="caption">{item.caption}</div>
             </div>
           ))}
@@ -57,7 +59,10 @@ const Popover: React.FC<{ open: boolean }> = ({ open }) => {
         <h2>Popular Suggestions</h2>
         <ul>
           {popularSuggestions.map((item, index) => (
-            <li key={index}>{item}</li>
+            <a href="/products">
+                 <li key={index}>{item}</li>
+            </a>
+           
           ))}
         </ul>
       </section>

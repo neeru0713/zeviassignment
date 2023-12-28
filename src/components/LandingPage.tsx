@@ -6,9 +6,9 @@ import SearchBar from './SearchBar';
 const LandingPage: React.FC = () => {
   return (
     <div className="landing-page">
-         <img src={logo} id="landing-page-bg"/>
+         <img src={logo} id="landing-page-icon"/>
       <header>
-      <SearchBar/>
+      <SearchBar className='landing-page-search'/>
        
       </header>
      

@@ -9,7 +9,8 @@
   width: 60%;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   position: absolute;
-  margin-top: 50%;
+ left: 20%;
+margin-top: 10px;
   padding: 20px;
 
   section {
@@ -27,11 +28,12 @@
       padding-left: 0px;
       color: $secondary-color;
 
-      li{
-
-        cursor: pointer;
-      }
     }
+
+    a {
+      color: #0060B6;
+      text-decoration: none;
+  }
 
   }
 

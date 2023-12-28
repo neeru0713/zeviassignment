@@ -1,34 +1,53 @@
-@import './_variables.scss';
+@import "./_variables.scss";
 
-.search-bar{
-  
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
- 
- input{
- margin-top: 8%;
-   padding: 30px 20px;
+.search-bar {
+ position: relative;
+text-align: center;
+  z-index: 10;
 
-   width: 50%;
-   border: $border-primary;
-   border-radius: 10px;
-
-   &::placeholder {
-    font-size: 24px; 
-    color: $placeholder-color; 
-  
+  &.landing-page-search{
+    padding-top: 10%;
+    input{
+      width: 50%;
+      padding: 30px 20px;
+    }
+    #search-icon {
+      position: absolute;
+     right: 25%;
+     top: 80%;
+      font-size: 30px;
+      
+    }
+    
   }
 
- }
+  &.products-page-search{
+    input{
+      width: 35%;
+      padding: 16px 18px;
+    }
 
- #search-icon {
-    margin-top: 8%;
-    position: absolute;
-    font-size: 30px;
-    right: 26%;
+    #search-icon {
+      position: absolute;
+      right: 33%;
+     top: 20%;
+      font-size: 30px;
+      
+    }
    
+  }
+
+  input {
+   
+
+   
+    border: 1px solid $border-primary;
+    border-radius: 10px;
+
+    &::placeholder {
+      font-size: 20px;
+      color: $placeholder-color;
+    }
   }
 
   
