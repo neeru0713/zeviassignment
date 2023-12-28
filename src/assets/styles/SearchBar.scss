@@ -1,8 +1,35 @@
 @import './_variables.scss';
 
 .search-bar{
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+ 
  input{
-    padding: 20px;
-    
+ margin-top: 8%;
+   padding: 30px 20px;
+
+   width: 50%;
+   border: $dark;
+   border-radius: 10px;
+
+   &::placeholder {
+    font-size: 24px; 
+    color: $placeholder-color; 
+  
+  }
+
  }
+
+ #search-icon {
+    margin-top: 8%;
+    position: absolute;
+    font-size: 30px;
+    right: 26%;
+   
+  }
+
+  
 }
