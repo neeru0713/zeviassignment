@@ -1,14 +1,13 @@
 import React from "react";
-// import "./styles/App.scss";
+import "./assets/styles/App.scss";
+import LandingPage from "./components/LandingPage";
 // import TrendingCloths from "./components/TrendingCloths";
 // import SearchBar from "./components/SearchBar";
 
 const App: React.FC = () => {
   return (
     <div className="app">
-      <h1>Trending Cloths</h1>
-      {/* <SearchBar />
-      <TrendingCloths /> */}
+    <LandingPage/>
     </div>
   );
 };

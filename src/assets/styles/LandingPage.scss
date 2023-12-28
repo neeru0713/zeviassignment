@@ -1,0 +1,18 @@
+// src/assets/styles/LandingPage.scss
+@import './_variables.scss';
+
+.landing-page {
+    background: url('../images/landingpage.jpg') center/cover no-repeat;
+    height: 100vh;
+    position: relative;
+    header{
+        img{
+            height: 40px;
+            width: 80px;
+            position: absolute;
+            right: 0;
+            margin: 30px;
+        }
+    }
+  
+}
