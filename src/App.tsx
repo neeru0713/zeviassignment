@@ -1,13 +1,18 @@
 import React from "react";
 import "./assets/styles/App.scss";
 import LandingPage from "./components/LandingPage";
-// import TrendingCloths from "./components/TrendingCloths";
-// import SearchBar from "./components/SearchBar";
+import ProductsPage from "./components/ProductsPage";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 const App: React.FC = () => {
   return (
     <div className="app">
-    <LandingPage/>
+     
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/products" element={<ProductsPage />} />
+        </Routes>
+     
     </div>
   );
 };
