@@ -1,0 +1,57 @@
+@import "./_variables.scss";
+
+.popover {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: $white;
+  height: 600px;
+  width: 60%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  margin-top: 50%;
+  padding: 20px;
+
+  section {
+    h2 {
+      font-weight: 500;
+    }
+  }
+
+  #popular-suggestions {
+    ul {
+      display: flex;
+      flex-direction: column;
+      list-style-type: none;
+      gap: 8px;
+      padding-left: 0px;
+      color: $secondary-color;
+    }
+  }
+
+  #image-gallery {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    .card {
+      display: flex;
+      flex-direction: column;
+
+      img {
+        border-radius: 10px;
+        height: 220px;
+        width: 180px;
+      }
+
+      .caption {
+        text-align: left;
+        padding: 10px;
+        color: $secondary-color;
+      }
+    }
+  }
+}
+
+.popover-hidden {
+  display: none;
+}

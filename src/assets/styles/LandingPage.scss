@@ -1,4 +1,4 @@
-// src/assets/styles/LandingPage.scss
+
 @import './_variables.scss';
 
 .landing-page {
@@ -16,7 +16,7 @@
         background-color: rgba(255, 255, 255, 0.2); /* Adjust the alpha value for transparency */
       }
 
-    img{
+    #landing-page-bg{
         height: 40px;
         width: 80px;
         position: absolute;
