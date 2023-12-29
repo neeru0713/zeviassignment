@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "../assets/styles/ProductsPage.scss";
-import logo from "../assets/images/zevi-logo.webp";
 import SearchBar from "./SearchBar";
 import Filter from "./Filter";
 import ProductCard from "./ProductCard";

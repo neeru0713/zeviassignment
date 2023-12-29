@@ -1,4 +1,4 @@
-// src/components/Popover.tsx
+
 import React, { useState, useEffect } from "react";
 import { faker } from '@faker-js/faker';
 import "../assets/styles/Popover.scss";
@@ -26,7 +26,7 @@ const Popover: React.FC<{ open: boolean }> = ({ open }) => {
       { image: leatherShirt, caption: 'Leather Shirt Dress' },
     ];
 
-    // Manually define clothing-related data for popular suggestions
+ 
     const popularSuggestionsData: string[] = [
       'Casual T-Shirt',
       'Formal Suit',

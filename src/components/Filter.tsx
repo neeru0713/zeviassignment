@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
-import StarRating from "./StarRating"; // Assuming you have a StarRating component
+import StarRating from "./StarRating"; 
 import "../assets/styles/Filter.scss";
 
 interface FilterProps {
@@ -19,12 +19,12 @@ const Filter: React.FC<FilterProps> = ({ heading, data, onFilterChange }) => {
 
   const handleCheckboxChange = (item: string) => {
     if (heading === "rating") {
-      // For star rating, handle differently
+      
       setSelectedCheckboxes((prev) =>
         prev.includes(item) ? prev.filter((prevItem) => prevItem !== item) : [item]
       );
     } else {
-      // For other checkboxes, handle as usual
+      
       setSelectedCheckboxes((prev) =>
         prev.includes(item) ? prev.filter((prevItem) => prevItem !== item) : [...prev, item]
       );
