@@ -1,0 +1,16 @@
+.star-rating {
+    display: flex;
+    font-size: 24px;
+    justify-content: center;
+  }
+  
+  .filled-star {
+    color: rgb(255, 191, 0);
+    opacity: 1;
+  }
+  
+  .empty-star {
+    color: transparent;
+    opacity: 0.9; 
+  }
+  

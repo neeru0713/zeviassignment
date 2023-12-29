@@ -22,11 +22,11 @@ const ProductsPage: React.FC = () => {
   const [selectedFilters, setSelectedFilters] = useState<{ [key: string]: string[] }>({});
 
   const products = [
-    { id: 1, name: "Product 1", price: "$50", imageUrl: stylishJacket, rating: 3, brand: "Mango" },
-    { id: 2, name: "Product 2", price: "$1000", imageUrl: designerDress, rating: 3, brand: "H&M" },
-    { id: 3, name: "Product 3", price: "$75", imageUrl: patternDress, rating: 3, brand: "Mango" },
-    { id: 4, name: "Product 4", price: "$820", imageUrl: formalSuit, rating: 3, brand: "H&M" },
-    { id: 5, name: "Product 5", price: "$1120", imageUrl: leatherShirt, rating: 3, brand: "Mango" },
+    { id: 1, name: "Product 1", price: "$50", imageUrl: stylishJacket, rating: 4, brand: "Mango" },
+    { id: 2, name: "Product 2", price: "$1000", imageUrl: designerDress, rating: 5, brand: "H&M" },
+    { id: 3, name: "Product 3", price: "$75", imageUrl: patternDress, rating: 4, brand: "Mango" },
+    { id: 4, name: "Product 4", price: "$820", imageUrl: formalSuit, rating: 4, brand: "H&M" },
+    { id: 5, name: "Product 5", price: "$1120", imageUrl: leatherShirt, rating: 5, brand: "Mango" },
   ];
 
   const handleFilterChange = (filters: string[], heading: string) => {
@@ -53,7 +53,7 @@ const ProductsPage: React.FC = () => {
         // Check brand filter
         return filter.includes(product.brand);
       } else if (heading === "PRICE RANGE") {
-        // Check price filter for each item in the array
+       
         return filter.every((priceFilter) => {
           debugger
           if (priceFilter.includes('Under')) {
@@ -87,11 +87,13 @@ const ProductsPage: React.FC = () => {
           <Filter heading="BRAND" data={brands} onFilterChange={handleFilterChange} />
           <hr />
           <Filter heading="PRICE RANGE" data={prices} onFilterChange={handleFilterChange} />
+          <hr />
+          <Filter heading="RATING" data={[]} onFilterChange={handleFilterChange} />
         </div>
 
         <div className="product-grid">
           {filteredProducts.map((product) => (
-            <ProductCard key={product.id} name={product.name} price={product.price} imageUrl={product.imageUrl} />
+            <ProductCard key={product.id} name={product.name} price={product.price} imageUrl={product.imageUrl} rating={product.rating}/>
           ))}
         </div>
       </section>

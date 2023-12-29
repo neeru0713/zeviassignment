@@ -19,12 +19,14 @@
         color: $secondary-color;
 
         li{
+            display: flex;
             input{
                 margin-right: 10px;
             }
 
             label{
                 font-size: 16px;
+                margin-left: 10px;
             }
         }
     }
