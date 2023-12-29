@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../assets/styles/ProductsPage.scss";
 import SearchBar from "./SearchBar";
 import Filter from "./Filter";
+import logo from "../assets/images/zevi-logo.webp"
 import ProductCard from "./ProductCard";
 import stylishJacket from "../assets/images/stylishJacket.jpg";
 import designerDress from "../assets/images/designer-dress.webp";
@@ -75,6 +76,7 @@ const ProductsPage: React.FC = () => {
 
   return (
     <div className="products-page">
+       <a href="/"><img src={logo} id="landing-page-icon"/></a> 
       <header>
         <SearchBar className="products-page-search" />
       </header>

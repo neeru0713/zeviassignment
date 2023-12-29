@@ -17,7 +17,7 @@ const SearchBar: React.FC<{ className: string }> = ({ className }) => {
         <CiSearch id="search-icon" />
       </div>
 
-      <Popover open={showPopover} />
+      {className === "landing-page-search" && <Popover open={showPopover} />}
     </>
   );
 };
