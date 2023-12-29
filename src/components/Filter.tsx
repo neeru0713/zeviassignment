@@ -1,21 +1,36 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import "../assets/styles/Filter.scss";
 
-const Filter: React.FC<{ heading: string; data: string[] }> = ({
-  heading,
-  data,
-}) => {
-  const [isCollapsed, setIsCollapsed] = useState(false);
+interface FilterProps {
+  heading: string;
+  data: string[];
+  onFilterChange: (filters: string[], heading: string) => void;
+}
 
-  function handleCheckboxChange(index: number) {}
+const Filter: React.FC<FilterProps> = ({ heading, data, onFilterChange }) => {
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [selectedCheckboxes, setSelectedCheckboxes] = useState<string[]>([]); 
+
+  useEffect(() => {
+    onFilterChange(selectedCheckboxes, heading);
+  }, [selectedCheckboxes])
+
+  const handleCheckboxChange = (item: string) => {
+    setSelectedCheckboxes((prev) =>
+      prev.includes(item) ? prev.filter((prevItem) => prevItem !== item) : [...prev, item]
+    );
+
+    
+   
+  };
 
   const handleToggleCollapse = () => {
     setIsCollapsed((prev) => !prev);
   };
 
   return (
-    <div className={`filter ${isCollapsed ? 'collapsed' : ''}`}>
+    <div className={`filter ${isCollapsed ? "collapsed" : ""}`}>
       <h2 onClick={handleToggleCollapse}>
         {heading}
         {!isCollapsed ? <FaChevronDown /> : <FaChevronUp />}
@@ -27,7 +42,8 @@ const Filter: React.FC<{ heading: string; data: string[] }> = ({
               <input
                 type="checkbox"
                 id={`item-${index}`}
-                onChange={() => handleCheckboxChange(index)}
+                checked={selectedCheckboxes.includes(item)}
+                onChange={() => handleCheckboxChange(item)}
               />
               <label htmlFor={`item-${index}`}>{item}</label>
             </li>
