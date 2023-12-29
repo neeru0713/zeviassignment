@@ -46,17 +46,14 @@ const ProductsPage: React.FC = () => {
   };
   
   const filteredProducts = products.filter((product) => {
-    // Check if the product matches all selected filters
     return Object.keys(selectedFilters).every((heading) => {
       const filter = selectedFilters[heading];
+
       if (heading === "BRAND") {
-        // Check brand filter
         return filter.includes(product.brand);
       } else if (heading === "PRICE RANGE") {
-       
         return filter.every((priceFilter) => {
-          debugger
-          if (priceFilter.includes('Under')) {
+          if (priceFilter.includes("Under")) {
             const [, maxPrice] = priceFilter.split("Under ");
             const productPrice = parseFloat(product.price.replace("$", ""));
             return productPrice <= parseFloat(maxPrice);
@@ -66,7 +63,10 @@ const ProductsPage: React.FC = () => {
             return productPrice >= parseFloat(minPrice) && productPrice <= parseFloat(maxPrice);
           }
         });
+      } else if (heading === "RATING") {
+        return filter.includes(`${product.rating}`);
       }
+
       return true;
     });
   });

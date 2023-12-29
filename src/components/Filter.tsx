@@ -18,9 +18,17 @@ const Filter: React.FC<FilterProps> = ({ heading, data, onFilterChange }) => {
   }, [selectedCheckboxes]);
 
   const handleCheckboxChange = (item: string) => {
-    setSelectedCheckboxes((prev) =>
-      prev.includes(item) ? prev.filter((prevItem) => prevItem !== item) : [...prev, item]
-    );
+    if (heading === "rating") {
+      // For star rating, handle differently
+      setSelectedCheckboxes((prev) =>
+        prev.includes(item) ? prev.filter((prevItem) => prevItem !== item) : [item]
+      );
+    } else {
+      // For other checkboxes, handle as usual
+      setSelectedCheckboxes((prev) =>
+        prev.includes(item) ? prev.filter((prevItem) => prevItem !== item) : [...prev, item]
+      );
+    }
   };
 
   const handleToggleCollapse = () => {
