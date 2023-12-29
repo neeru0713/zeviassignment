@@ -23,12 +23,28 @@ const ProductsPage: React.FC = () => {
 
   const products = [
     { id: 1, name: "Product 1", price: "$50", imageUrl: stylishJacket, rating: 3, brand: "Mango" },
-    { id: 2, name: "Product 2", price: "$100", imageUrl: designerDress, rating: 3, brand: "H&M" },
+    { id: 2, name: "Product 2", price: "$1000", imageUrl: designerDress, rating: 3, brand: "H&M" },
     { id: 3, name: "Product 3", price: "$75", imageUrl: patternDress, rating: 3, brand: "Mango" },
-    { id: 4, name: "Product 4", price: "$120", imageUrl: formalSuit, rating: 3, brand: "H&M" },
-    { id: 5, name: "Product 5", price: "$120", imageUrl: leatherShirt, rating: 3, brand: "Mango" },
+    { id: 4, name: "Product 4", price: "$820", imageUrl: formalSuit, rating: 3, brand: "H&M" },
+    { id: 5, name: "Product 5", price: "$1120", imageUrl: leatherShirt, rating: 3, brand: "Mango" },
   ];
 
+  const handleFilterChange = (filters: string[], heading: string) => {
+    setSelectedFilters((prevFilters) => {
+      const updatedFilters = { ...prevFilters };
+  
+      if (filters.length === 0) {
+        // If filters array is empty, remove the entire filter entry for the heading
+        delete updatedFilters[heading];
+      } else {
+        // If filters array is not empty, update the filters for the heading
+        updatedFilters[heading] = filters;
+      }
+  
+      return updatedFilters;
+    });
+  };
+  
   const filteredProducts = products.filter((product) => {
     // Check if the product matches all selected filters
     return Object.keys(selectedFilters).every((heading) => {
@@ -37,33 +53,24 @@ const ProductsPage: React.FC = () => {
         // Check brand filter
         return filter.includes(product.brand);
       } else if (heading === "PRICE RANGE") {
-        // Check price filter
-        if (filter.length === 1) {
-          const [minPrice, maxPrice] = filter[0].split(" To ");
-          const productPrice = parseFloat(product.price.replace("$", ""));
-          return productPrice >= parseFloat(minPrice) && productPrice <= parseFloat(maxPrice);
-        }
+        // Check price filter for each item in the array
+        return filter.every((priceFilter) => {
+          debugger
+          if (priceFilter.includes('Under')) {
+            const [, maxPrice] = priceFilter.split("Under ");
+            const productPrice = parseFloat(product.price.replace("$", ""));
+            return productPrice <= parseFloat(maxPrice);
+          } else {
+            const [minPrice, maxPrice] = priceFilter.split(" To ");
+            const productPrice = parseFloat(product.price.replace("$", ""));
+            return productPrice >= parseFloat(minPrice) && productPrice <= parseFloat(maxPrice);
+          }
+        });
       }
       return true;
     });
   });
-
-  const handleFilterChange = (filters: string[], heading: string) => {
-    
-    setSelectedFilters((prevFilters) => {
-      const updatedFilters = { ...prevFilters };
   
-      if (filters.length === 0) {
-      
-        delete updatedFilters[heading];
-      } else {
-     
-        updatedFilters[heading] = filters;
-      }
-  
-      return updatedFilters;
-    });
-  };
   
   
 
